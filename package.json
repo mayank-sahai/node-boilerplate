@@ -1,0 +1,21 @@
+{
+  "name": "verdeblocks-backend",
+  "version": "1.0.0",
+  "description": "Energy Trading Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "debug": "nodemon --inspect server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Newgen",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "config": "^3.0.1",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

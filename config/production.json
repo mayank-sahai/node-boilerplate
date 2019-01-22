@@ -1,0 +1,10 @@
+{
+  "Customer": {
+    "dbConfig": {
+      "host": "verdeblocks"
+    },
+    "credit": {
+      "initialDays": 30
+    }
+  }
+}
