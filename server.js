@@ -3,10 +3,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const config = require('config');
+const swaggerUi = require('swagger-ui-express');
 
 /** ********************** Require Local modules ********************* */
 const routers = require('./routes');
 const logger = require('./utils/logger');
+const swaggerDocument = require('./swagger.json');
 
 /** ********************** Varaiable Listing ********************* */
 const app = express();
@@ -19,6 +21,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api', router);
 routers(router);
+
+// Swagger configuration
+if (env === 'development') {
+  var options = {
+    explorer : true
+  };
+   
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
+  logger.info(`Swagger running on http://localhost:5000/api-docs`);
+}
 
 // Server Start
 app.listen(port, (error) => {
