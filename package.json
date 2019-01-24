@@ -1,7 +1,7 @@
 {
-  "name": "verdeblocks-backend",
+  "name": "node-boilerplate",
   "version": "1.0.0",
-  "description": "Energy Trading Platform",
+  "description": "Node Project Architecture",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",

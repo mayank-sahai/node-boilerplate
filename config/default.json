@@ -1,15 +1,5 @@
 {
   "General": {
-    "dbConfig": {
-      "host": "localhost",
-      "port": 5984,
-      "dbName": "verdeblocks"
-    },
-    "port": 5000,
-    "credit": {
-      "initialLimit": 100,
-      
-      "initialDays": 1
-    }
+    
   }
 }
