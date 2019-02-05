@@ -9,8 +9,9 @@ const swaggerUi = require('swagger-ui-express');
 
 /** ********************** Require Local modules ********************* */
 const routers = require('./routes');
-const logger = require('./utils/logger');
+const { logger } = require('./utils');
 const swaggerDocument = require('./swagger.json');
+const { errorHandler, responseHandler } = require('./middlewares');
 
 /** ********************** Varaiable Listing ********************* */
 const app = express();
@@ -41,6 +42,9 @@ if (env === 'development') {
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
   logger.info('Swagger running on http://localhost:5000/api-docs');
 }
+
+app.use(responseHandler);
+app.use(errorHandler);
 
 // Server Start
 app.listen(port, (error) => {
