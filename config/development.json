@@ -1,7 +1,15 @@
 {
-    "General": {
-      "port": 5000,
-      "csrfKey": "omsahyiannk"
-
-    }
+  "General": {
+    "port": 5000,
+    "ip": "localhost",
+    "secretKey": "obhstyicw"
+  },
+  "dbConfig": {
+    "username": "node-boilerplate",
+    "password": "node-boilerplate",
+    "database": "node-boilerplatev3",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
   }
+}

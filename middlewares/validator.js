@@ -7,29 +7,29 @@ const Boom = require('boom');
 const { logger } = require('../utils');
 
 const schema = {
-  '/login': {
+  '/auth': {
     body: JOI.object().keys({
       email: JOI.string().email().required(),
-      password: JOI.string().regex(/^(?=.*?[A-Za-z])(?=.*?[0-9]).{8,}$/).required(),
+      name: JOI.string().required(),
     }),
     params: null,
-  }
-}
+  },
+
+};
 
 module.exports = async (req, res, next) => {
-
   try {
     if (schema[req.route.path].body) {
       // Body validation
-      let bodyResult = await JOI.validate(req.body, schema[req.route.path].body);
+      await JOI.validate(req.body, schema[req.route.path].body);
     }
-    if (schema[req.route.path].params) {
+    if (schema[req.route.path].query) {
       // Param validation
-      let paramResult = await JOI.validate(req.params, schema[req.route.path].params);
+      await JOI.validate(req.query, schema[req.route.path].query);
     }
     next();
   } catch (err) {
-    logger.error("Error in API validation", err.details[0].message);
+    logger.error('Error in API validation', err.details[0].message);
     next(Boom.badData(err.details[0].message));
   }
 };

@@ -5,7 +5,7 @@ const fs = require('fs');
 
 /** ********************** Varaiable Listing ********************* */
 const logDirectory = './logs';
-const fileLogFormat = winston.format.printf(info => `${info.timestamp} ${info.level}: ${info.message}`);
+const fileLogFormat = winston.format.printf((info) => `${info.timestamp} ${info.level}: ${info.message}`);
 
 if (!fs.existsSync(logDirectory)) {
   // Create the directory if it does not exist

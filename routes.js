@@ -1,7 +1,7 @@
 
 /* ********************************* Import Local Modules ********************************* */
 const { userController } = require('./controllers');
-const { validator } = require('./middlewares');
+const { validator,authenticator } = require('./middlewares');
 
 module.exports = (app) => {
   app.get('/', (req, res) => {
